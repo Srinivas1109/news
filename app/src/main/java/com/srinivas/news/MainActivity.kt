@@ -22,7 +22,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    val apiKey = BuildConfig.NEWS_API_KEY
+                    Greeting("Android $apiKey")
                 }
             }
         }
