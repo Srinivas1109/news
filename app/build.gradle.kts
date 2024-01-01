@@ -3,6 +3,8 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -77,8 +79,36 @@ dependencies {
     // Retrofit http library
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // Serialization
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+//    implementation("com.google.code.gson:gson:2.10.1")
 
     // Image library
     implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+
+    // Hilt Navigation
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+
+    // Hilt worker
+    implementation("androidx.hilt:hilt-work:1.1.0")
+    kapt("androidx.hilt:hilt-compiler:1.1.0")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
+    // Viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+
+    // Work Manager
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+}
+
+kapt {
+    correctErrorTypes = true
 }
